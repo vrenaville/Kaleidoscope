@@ -113,7 +113,6 @@ USE_MAGIC_COMBOS(
 
 enum {
   QWERTY,
-  LOWER,
   RAISE,
   FUN
 };
@@ -122,23 +121,15 @@ enum {
 KEYMAPS(
   [QWERTY] = KEYMAP
   (
-    Consumer_VolumeDecrement, Consumer_VolumeIncrement, M(MACRO_ANY), ShiftToLayer(FUN),                 Consumer_PlaySlashPause,
-    Key_Backtick,   Key_1,           Key_2,           Key_3,                   Key_4,           Key_5,           Key_6,           Key_7,           Key_8,                      Key_9,           Key_0,           Key_Minus,
+    Consumer_VolumeDecrement, Consumer_VolumeIncrement, Consumer_ScanPreviousTrack, Consumer_ScanNextTrack,                 Consumer_PlaySlashPause,
+    Key_Escape,   Key_1,           Key_2,           Key_3,                   Key_4,           Key_5,           Key_6,           Key_7,           Key_8,                      Key_9,           Key_0,           Key_Minus,
     Key_Tab,        Key_Q,           Key_W,           Key_E,                   Key_R,           Key_T,           Key_Y,           Key_U,           Key_I,                      Key_O,           Key_P,           Key_Backspace,
-    Key_Escape,     Key_A,           Key_S,           Key_D,                   Key_F,           Key_G,           Key_H,           Key_J,           Key_K,                      Key_L,           Key_Semicolon,   Key_Quote,
+    Key_Backtick,     Key_A,           Key_S,           Key_D,                   Key_F,           Key_G,           Key_H,           Key_J,           Key_K,                      Key_L,           Key_Semicolon,   Key_Quote,
     Key_LeftShift,  Key_Z,           Key_X,           Key_C,                   Key_V,           Key_B,           Key_N,           Key_M,           Key_Comma,                  Key_Period,      Key_Slash,       Key_Enter,
-    Key_Hyper,      Key_LeftControl, Key_LeftAlt,     Key_LeftGui,            ShiftToLayer(LOWER),       Key_Backspace,   Key_Space,       ShiftToLayer(RAISE),       Key_LeftArrow,             Key_DownArrow,   Key_UpArrow,     Key_RightArrow
+    Key_LeftControl,      Key_RightAlt, Key_LeftAlt,     Key_LeftGui,            ShiftToLayer(FUN),       Key_Backspace,   Key_Space,       ShiftToLayer(RAISE),       Key_LeftArrow,             Key_UpArrow,   Key_DownArrow,     Key_RightArrow
   ),
 
-  [LOWER] = KEYMAP
-  (
-   ___, ___,  ___,            ___,             ___,
-    ___,            ___,             ___,             ___,             ___,             ___,             ___,             ___,             Key_Slash,      Key_Star,        Key_Minus,       Key_Equals,
-    ___,            ___,             ___,             ___,             ___,             ___,             ___,             Key_7,           Key_8,          Key_9,           Key_Minus,       ___,
-    ___,            ___,             ___,             ___,             ___,             ___,             ___,             Key_4,           Key_5,          Key_6,           Key_Plus,        ___,
-    ___,            ___,             ___,             ___,             ___,             ___,             ___,             Key_1,           Key_2,          Key_3,           Key_Plus,        ___,
-    ___,            ___,             ___,             ___,             ___,             ___,             Key_Backspace,   Key_0,           Key_Period,     ___,             Key_Enter,       ___
-  ),
+
 
   [RAISE] = KEYMAP
   (
