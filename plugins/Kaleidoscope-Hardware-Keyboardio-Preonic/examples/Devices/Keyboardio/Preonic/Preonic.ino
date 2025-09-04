@@ -135,17 +135,17 @@ KEYMAPS(
   (
       ___, ___,  ___,            ___,             ___,
     Key_Escape,     Key_F1,          Key_F2,          Key_F3,                 Key_F4,          Key_F5,          Key_F6,          Key_F7,          Key_F8,                     Key_F9,          Key_F12,         Key_Equals,
-    Key_Backtick,   ___,             Key_mouseUp,     ___,                    Key_mouseWarpNW, Key_mouseWarpNE, Key_Backslash,   LSHIFT(Key_LeftBracket), LSHIFT(Key_RightBracket), Key_LeftBracket, Key_RightBracket, Key_Delete,
-    Key_CapsLock,   Key_mouseL,      Key_mouseDn,     Key_mouseR,             Key_mouseWarpSW, Key_mouseWarpSE, Key_LeftArrow,   Key_DownArrow,   Key_UpArrow,                Key_RightArrow,  ___,             ___,
-    ___,            Key_mouseBtnL,   Key_mouseBtnM,   Key_mouseBtnR,          ___,             Key_mouseWarpEnd,___,             ___,             ___,                        ___,            Key_Backslash,             ___,
-    ___,            ___,             Key_RightAlt,    ___,                    ___,             ___,             ___,             ___,             ___,                        ___,             ___,             ___
+    Key_Backtick,   ___,             Key_mouseUp,     ___,                    Key_mouseWarpNW, Key_mouseWarpNE, Key_Home,   Key_End, LSHIFT(Key_RightBracket), Key_LeftBracket, Key_RightBracket, Key_Delete,
+    Key_CapsLock,   Key_mouseL,      Key_mouseDn,     Key_mouseR,             Key_mouseWarpSW, Key_mouseWarpSE, Key_Insert,   Key_Delete,   Key_Backspace,               LSHIFT(Key_LeftBracket),  LSHIFT(Key_RightBracket),             ___,
+    ___,            Key_mouseBtnL,   Key_mouseBtnM,   Key_mouseBtnR,          ___,             Key_mouseWarpEnd,___,             ___,             Key_KeypadMultiply,  Key_KeypadAdd,            Key_Backslash,             ___,
+    ___,            ___,             Key_RightAlt,    ___,                    ___,             ___,             ___,             ___,             Key_Home,                        Key_PageUp,             Key_PageDown,             Key_End
   ),
 
   [FUN] = KEYMAP
   (
        ___, ___, ___,            ___,             ___,
-    Key_BLEOff, Key_BLESelectDevice1, Key_BLESelectDevice2, Key_BLESelectDevice3, Key_BLESelectDevice4, Key_BLEStartPairing, ___, ___, ___, ___, ___, ___,
-    Key_BLEOff,Key_BLESelectDevice1, Key_BLESelectDevice2,Key_BLESelectDevice3,  Key_BLESelectDevice4, Key_BLEStartPairing,             ___,             ___,             ___,                        ___,             ___,             ___,
+    Key_F1, Key_F2, Key_F3, Key_F4, Key_F4, Key_F5, Key_F6, Key_F7, Key_F8, Key_F9, Key_F10, Key_F11,
+    Key_BLEOff,Key_BLESelectDevice1, Key_BLESelectDevice2,Key_BLESelectDevice3,  Key_BLESelectDevice4, Key_BLEStartPairing,             ___,             ___,             ___,                        ___,             ___,             Key_F12,
     ___,            Consumer_ScanPreviousTrack,Consumer_VolumeDecrement,Consumer_ScanNextTrack,___,             ___,             ___,             ___,             ___,                        ___,             ___,             ___,
     Key_ToggleKeyclick,___,             Consumer_Mute,   ___,                    ___,             ___,             ___,             ___,             ___,                        ___,             ___,             ___,
     M(MACRO_BATTERY_LEVEL), ___,        ___,             ___,                    ___,             ___,             ___,             ___,             ___,                        ___,             ___,              ___
