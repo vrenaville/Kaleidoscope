@@ -43,7 +43,7 @@
 #include "Kaleidoscope-MagicCombo.h"
 
 #include "Kaleidoscope-TapDance.h"
-
+#include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 #include "Kaleidoscope-LEDEffect-BootGreeting.h"
 // Support for shared palettes for other plugins, like Colormap below
@@ -128,7 +128,7 @@ KEYMAPS(
     Key_Tab,        Key_Q,           Key_W,           Key_E,                   Key_R,           Key_T,           Key_Y,           Key_U,           Key_I,                      Key_O,           Key_P,           Key_Backspace,
     Key_Backtick,     Key_A,           Key_S,           Key_D,                   Key_F,           Key_G,           Key_H,           Key_J,           Key_K,                      Key_L,           Key_Semicolon,   Key_Quote,
     Key_LeftShift,  Key_Z,           Key_X,           Key_C,                   Key_V,           Key_B,           Key_N,           Key_M,           Key_Comma,                  Key_Period,      Key_Slash,       Key_Enter,
-    Key_LeftControl,      Key_RightAlt, Key_LeftAlt,     Key_LeftGui,            ShiftToLayer(FUN),       Key_Backspace,   Key_Space,       ShiftToLayer(RAISE),      TD(0),             Key_UpArrow,   Key_DownArrow,     Key_RightArrow
+    Key_LeftControl,      Key_RightAlt, Key_LeftAlt,     Key_LeftGui,            ShiftToLayer(FUN),       Key_Backspace,   Key_Space,       ShiftToLayer(RAISE),      Key_LeftArrow,             Key_UpArrow,   Key_DownArrow,     Key_RightArrow
   ),
 
 
@@ -314,7 +314,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // Should be listed after LEDIndicators to see connection status changes
   USBAutoSwitcher,  
   // --use tap dance for keys that need it--
-  TapDance
+  //TapDance,
+  Qukeys
 );
 
 
@@ -532,14 +533,18 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
   return MACRO_NONE;
 }
 
-void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count,
-                    kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
-  switch (tap_dance_index) {
-  case 0:
-    return tapDanceActionKeys(tap_count, tap_dance_action,
-                              Key_LeftArrow, Key_Home);
-  }
-}
+// void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count,
+//                     kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
+//   switch (tap_dance_index) {
+//   case 0:
+//     return tapDanceActionKeys(tap_count, tap_dance_action,
+//                               Key_LeftArrow, Key_Home);
+
+//   case 1:
+//     return tapDanceActionKeys(tap_count, tap_dance_action,
+//                               Key_RightArrow, Key_End);
+//   }
+// }
 
 
 void setup() {
@@ -549,9 +554,9 @@ void setup() {
   EEPROMKeymap.setup(9);
   PreonicColormapEffect.max_layers(9);
   LEDRainbowEffect.brightness(25);
-
+  //TapDance.setTimeout(4);
   DynamicMacros.reserve_storage(512);
-
+  
   LayerNames.reserve_storage(128);
 
   // Disable Keyclick by default
@@ -570,6 +575,13 @@ void setup() {
 
   //kaleidoscope::Runtime.device().ble().selectDevice(1);
   //kaleidoscope::Runtime.device().setHostConnectionMode(MODE_BLE);
+  QUKEYS(
+    // home end on old left and right arrows
+    kaleidoscope::plugin::Qukey(0, KeyAddr(5, 11), Key_End),
+    kaleidoscope::plugin::Qukey(0, KeyAddr(5, 8), Key_Home),
+    kaleidoscope::plugin::Qukey(0, KeyAddr(5, 10), Key_PageDown),
+    kaleidoscope::plugin::Qukey(0, KeyAddr(5, 9), Key_PageUp)
+)
 }
 
 void loop() {
