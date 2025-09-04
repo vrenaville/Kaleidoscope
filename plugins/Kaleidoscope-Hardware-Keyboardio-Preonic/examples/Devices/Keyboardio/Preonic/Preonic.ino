@@ -137,7 +137,7 @@ KEYMAPS(
     Key_Escape,     Key_F1,          Key_F2,          Key_F3,                 Key_F4,          Key_F5,          Key_F6,          Key_F7,          Key_F8,                     Key_F9,          Key_F12,         Key_Equals,
     Key_Backtick,   ___,             Key_mouseUp,     ___,                    Key_mouseWarpNW, Key_mouseWarpNE, Key_Home,   Key_End, LSHIFT(Key_RightBracket), Key_LeftBracket, Key_RightBracket, Key_Delete,
     Key_CapsLock,   Key_mouseL,      Key_mouseDn,     Key_mouseR,             Key_mouseWarpSW, Key_mouseWarpSE, Key_Insert,   Key_Delete,   Key_Backspace,               LSHIFT(Key_LeftBracket),  LSHIFT(Key_RightBracket),             ___,
-    ___,            Key_mouseBtnL,   Key_mouseBtnM,   Key_mouseBtnR,          ___,             Key_mouseWarpEnd,___,             ___,             Key_KeypadMultiply,  Key_KeypadAdd,            Key_Backslash,             ___,
+    ___,            Key_mouseBtnL,   Key_mouseBtnM,   Key_mouseBtnR,          ___,             Key_mouseWarpEnd,___,             ___,             Key_KeypadMultiply,  Key_KeypadAdd,            Key_Backslash,            LSHIFT(Key_Backslash) ,
     ___,            ___,             Key_RightAlt,    ___,                    ___,             ___,             ___,             ___,             Key_Home,                        Key_PageUp,             Key_PageDown,             Key_End
   ),
 
