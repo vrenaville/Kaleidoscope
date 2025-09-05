@@ -312,10 +312,10 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // USBAutoSwitcher handles automatic switching between USB and BLE
   // Should be listed after LEDIndicators to see connection status changes
-  USBAutoSwitcher,  
+  USBAutoSwitcher
   // --use tap dance for keys that need it--
   //TapDance,
-  Qukeys
+  //Qukeys
 );
 
 
@@ -573,16 +573,17 @@ void setup() {
   //  DefaultLEDModeConfig.activateLEDModeIfUnconfigured(&LEDRainbowEffect);
 
   DefaultLEDModeConfig.activateLEDModeIfUnconfigured(&LEDOff);
+ 
 
   //kaleidoscope::Runtime.device().ble().selectDevice(1);
   //kaleidoscope::Runtime.device().setHostConnectionMode(MODE_BLE);
-  QUKEYS(
-    // home end on old left and right arrows
-    kaleidoscope::plugin::Qukey(0, KeyAddr(5, 11), Key_End),
-    kaleidoscope::plugin::Qukey(0, KeyAddr(5, 8), Key_Home)
-    // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 10), Key_PageDown),
-    // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 9), Key_PageUp)
-)
+//   QUKEYS(
+//     // home end on old left and right arrows
+//     kaleidoscope::plugin::Qukey(0, KeyAddr(5, 11), Key_End),
+//     kaleidoscope::plugin::Qukey(0, KeyAddr(5, 8), Key_Home)
+//     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 10), Key_PageDown),
+//     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 9), Key_PageUp)
+// )
 }
 
 void loop() {
