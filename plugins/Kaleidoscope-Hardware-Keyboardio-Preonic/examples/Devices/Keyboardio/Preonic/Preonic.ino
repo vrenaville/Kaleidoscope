@@ -90,7 +90,9 @@ enum {
   MACRO_BT_SELECT_4,  // Select slot 4
   MACRO_BT_PAIR,      // Start pairing for selected slot
   MACRO_BT_OFF,
-  MACRO_BATTERY_LEVEL  // Report current battery level
+  MACRO_BATTERY_LEVEL,  // Report current battery level
+  MACRO_TCTRLC,
+  MACRO_TCTRLV
 };
 
 // Define our magic combo
@@ -149,7 +151,7 @@ KEYMAPS(
     Key_F1, Key_F2, Key_F3, Key_F4, Key_F4, Key_F5, Key_F6, Key_F7, Key_F8, Key_F9, Key_F10, Key_F11,
     Key_BLEOff,Key_BLESelectDevice1, Key_BLESelectDevice2,Key_BLESelectDevice3,  Key_BLESelectDevice4, Key_BLEStartPairing,             ___,             ___,             ___,                        ___,             ___,             Key_F12,
     ___,            Consumer_ScanPreviousTrack,Consumer_VolumeDecrement,Consumer_ScanNextTrack,___,             ___,             ___,             ___,             ___,                        ___,             ___,             ___,
-    Key_ToggleKeyclick,___,             Consumer_Mute,   ___,                    ___,             ___,             ___,             ___,             ___,                        ___,             ___,             ___,
+    Key_ToggleKeyclick,___,             Consumer_Mute,   M(MACRO_TCTRLC),                    M(MACRO_TCTRLV),             ___,             ___,             ___,             ___,                        ___,             ___,             ___,
     M(MACRO_BATTERY_LEVEL), ___,        ___,             ___,                    ___,             ___,             ___,             ___,             ___,                        ___,             ___,              ___
   )
 );
@@ -530,9 +532,23 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
   case MACRO_BATTERY_LEVEL:
     batteryLevelMacro(event.state);
     break;
+  case MACRO_TCTRLC:
+    if (keyToggledOn(event.state)) {
+      return MACRO(D(LeftControl), D(LeftShift), T(C));
+    }
+    break;
+  case MACRO_TCTRLV:
+    if (keyToggledOn(event.state)) {
+      return MACRO(D(LeftControl), D(LeftShift), T(V));
+    }
+    break;
+
+  
   }
+
   return MACRO_NONE;
-}
+  }
+
 
 // void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count,
 //                     kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
@@ -546,6 +562,7 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
 //                               Key_RightArrow, Key_End);
 //   }
 // }
+
 
 
 void setup() {
