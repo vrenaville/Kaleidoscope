@@ -585,7 +585,7 @@ void setup() {
   // To avoid any surprises, SpaceCadet is turned off by default. However, it
   // can be permanently enabled via Chrysalis, so we should only disable it if
   // no configuration exists.
-  SpaceCadetConfig.disableSpaceCadetIfUnconfigured();
+  //SpaceCadetConfig.disableSpaceCadetIfUnconfigured();
 
   //  DefaultLEDModeConfig.activateLEDModeIfUnconfigured(&LEDRainbowEffect);
 
@@ -601,6 +601,17 @@ void setup() {
 //     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 10), Key_PageDown),
 //     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 9), Key_PageUp)
 // )
+// add space cadet mappings, left and right parens on alt keys
+  static kaleidoscope::plugin::SpaceCadet::KeyBinding spacecadetmap[] = {
+     {Key_RightAlt, Key_LeftParen, 250}
+    , {Key_LeftAlt, Key_RightParen, 250}
+    , SPACECADET_MAP_END
+  };
+  SpaceCadet.setMap(spacecadetmap);
+  // To avoid any surprises, SpaceCadet is turned off by default. However, it
+  // can be permanently enabled via Chrysalis, so we should only disable it if
+  // no configuration exists.
+  SpaceCadet.enable();
 }
 
 void loop() {
