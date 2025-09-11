@@ -605,6 +605,8 @@ void setup() {
   static kaleidoscope::plugin::SpaceCadet::KeyBinding spacecadetmap[] = {
      {Key_RightAlt, Key_LeftParen, 250}
     , {Key_LeftAlt, Key_RightParen, 250}
+    , {Key_LeftControl, Key_RightBracket, 250}
+    , {Key_LeftShift, Key_LeftBracket, 250}
     , SPACECADET_MAP_END
   };
   SpaceCadet.setMap(spacecadetmap);
