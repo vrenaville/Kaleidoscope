@@ -43,7 +43,7 @@
 #include "Kaleidoscope-MagicCombo.h"
 
 //#include "Kaleidoscope-TapDance.h"
-#include "Kaleidoscope-Qukeys.h"
+
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 #include "Kaleidoscope-LEDEffect-BootGreeting.h"
 // Support for shared palettes for other plugins, like Colormap below
@@ -65,7 +65,7 @@
 
 // Support for automatic USB/BLE device switching
 #include "Kaleidoscope-USBAutoSwitcher.h"
-
+// #include "Kaleidoscope-AutoShift.h"
 
 /** This 'enum' is a list of all the macros used by the Preonic's firmware
   * The names aren't particularly important. What is important is that each
@@ -130,7 +130,7 @@ KEYMAPS(
     Key_Tab,        Key_Q,           Key_W,           Key_E,                   Key_R,           Key_T,           Key_Y,           Key_U,           Key_I,                      Key_O,           Key_P,           Key_Backspace,
     Key_Backtick,     Key_A,           Key_S,           Key_D,                   Key_F,           Key_G,           Key_H,           Key_J,           Key_K,                      Key_L,           Key_Semicolon,   Key_Quote,
     Key_LeftShift,  Key_Z,           Key_X,           Key_C,                   Key_V,           Key_B,           Key_N,           Key_M,           Key_Comma,                  Key_Period,      Key_Slash,       Key_Enter,
-    Key_LeftControl,      Key_RightAlt, Key_LeftAlt,     Key_LeftGui,            ShiftToLayer(FUN),       Key_Backspace,   Key_Space,       ShiftToLayer(RAISE),      Key_LeftArrow,             Key_UpArrow,   Key_DownArrow,     Key_RightArrow
+    Key_LeftControl,      Key_LeftAlt, Key_RightAlt,     Key_LeftGui,            ShiftToLayer(FUN),       Key_Backspace,   Key_Space,       ShiftToLayer(RAISE),      Key_LeftArrow,             Key_UpArrow,   Key_DownArrow,     Key_RightArrow
   ),
 
 
@@ -594,15 +594,17 @@ void setup() {
 
   //kaleidoscope::Runtime.device().ble().selectDevice(1);
   //kaleidoscope::Runtime.device().setHostConnectionMode(MODE_BLE);
-//   QUKEYS(
-//     // home end on old left and right arrows
-//     kaleidoscope::plugin::Qukey(0, KeyAddr(5, 11), Key_End),
-//     kaleidoscope::plugin::Qukey(0, KeyAddr(5, 8), Key_Home)
-//     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 10), Key_PageDown),
-//     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 9), Key_PageUp)
-// )
+//    QUKEYS(
+//      // home end on old left and right arrows
+//      kaleidoscope::plugin::Qukey(0, KeyAddr(2, 1), Key_RightAlt)
+//      //kaleidoscope::plugin::Qukey(0, KeyAddr(1, 9), Key_LeftParen),
+//      //kaleidoscope::plugin::Qukey(0, KeyAddr(1, 10), Key_RightParen)
+//      // kaleidoscope::plugin::Qukey(0
+// //     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 10), Key_PageDown),
+// //     // kaleidoscope::plugin::Qukey(0, KeyAddr(5, 9), Key_PageUp)
+//    )
 // add space cadet mappings, left and right parens on alt keys
-
+  //Qukeys.activate();
   static kaleidoscope::plugin::SpaceCadet::KeyBinding spacecadetmap[] = {
      {Key_LeftAlt, Key_LeftParen, 250}
     , {Key_LeftGui, Key_RightParen, 250}
