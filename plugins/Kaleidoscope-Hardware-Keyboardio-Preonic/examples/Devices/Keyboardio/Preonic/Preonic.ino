@@ -606,10 +606,10 @@ void setup() {
 // add space cadet mappings, left and right parens on alt keys
   //Qukeys.activate();
   static kaleidoscope::plugin::SpaceCadet::KeyBinding spacecadetmap[] = {
-     {Key_LeftAlt, Key_LeftParen, 250}
+     {Key_RightAlt, Key_LeftParen, 250}
     , {Key_LeftGui, Key_RightParen, 250}
     , {Key_LeftControl, Key_LeftBracket, 250}
-    , {Key_RightAlt, Key_RightBracket, 250}
+    , {Key_LeftAlt, Key_RightBracket, 250}
     //, {ShiftToLayer(FUN), LSHIFT(Key_LeftBracket), 250}
     //, {ShiftToLayer(RAISE), LSHIFT(Key_RightBracket), 250}
     , SPACECADET_MAP_END
